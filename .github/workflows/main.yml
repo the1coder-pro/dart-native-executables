@@ -19,9 +19,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: DanTup/gh-actions/setup-dart@master
+      - run: dart pub get update
       - run: mkdir build
-      - run: dart2native bin/main.dart -v -o build/${{ matrix.output-name }}
+      - run: dart compile exe bin/main.dart
       - uses: actions/upload-artifact@v1
         with:
           name: native-executables
